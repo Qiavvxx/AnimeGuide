@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/pages/:path*",
+      "destination": "/Pages/:path*",
+      "permanent": true
+    }
+  ]
+}
