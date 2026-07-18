@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AnimeGuide</title>
+
+
+  <!-- [Фавиконка]  -->
+  <link rel="icon" type="image/png" href="favicon.png?v=6">
+</head>
+<body>
+
+  <!-- [Шапка] идея: логотип + навигация + поиск -->
+  <header class="site">
+    <nav>
+      <div class="logo"><b><img src="favicon.png" alt="" width="20" height="20" style="vertical-align:middle; margin-right:6px;">Anime</b>Guide</div>
+      <div class="nav-links">
+        <a href="#top" class="current">Главная</a>
+        <a href="#top-list">ТОП-5</a>
+        <a href="#glossary">Глоссарий</a>
+        <a href="#contacts">Контакты</a>
+        <div class="fav-icon">
+          ❤️ <span id="favCount">0</span>
+        </div>
+      </div>
+      <form class="search" role="search" onsubmit="return false;">
+        <input type="search" placeholder="Поиск по тайтлам" aria-label="Поиск">
+        <button class="btn alt" type="button">Найти</button>
+      </form>
+<!-- Бургер-переключатель -->
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Открыть меню">
+
+<!-- Кнопка-бургер -->
+<label class="burger" for="nav-toggle" aria-label="Открыть меню">
+  <span></span>
+</label>
+
+<!-- Мобильная панель -->
+<div class="nav-panel" role="dialog" aria-modal="true" aria-labelledby="mnav-title">
+  <div class="nav-panel-head">
+    <div id="mnav-title" class="logo"><b>Anime</b>Guide</div>
+    <label class="close" for="nav-toggle" aria-label="Закрыть меню">✕</label>
+  </div>
+  <nav class="mnav-links" role="navigation">
+    <a href="#top" class="current">Главная</a>
+    <a href="#top-list">ТОП-5</a>
+    <a href="#glossary">Глоссарий</a>
+    <a href="#contacts">Контакты</a>
+
+  </nav>
+</div>
+
+<!-- Полупрозрачный фон за панелью -->
+<div class="scrim"></div>
+    </nav>
+  </header>
+
+  <main class="container" id="top">
+    <!-- [Заголовки h1–h3 + комментарии] -->
+    <h1>Лучшие аниме-сериалы</h1>
+    <p class="tagline lead">
+      <!-- [p, b, i, em, u, strong, sub, sup, abbr] -->
+      Это наш небольшой <b>гайд</b> по тайтлам, которые <em>стоит</em> посмотреть.
+      Мы делаем акцент на <u>описаниях</u> и причинах «почему это классно», а не на просмотре.
+      Здесь и «классика» с <strong>рейтинговыми</strong> шедеврами, и свежие открытия.
+      Кстати, <abbr title="Japanese Animation">аниме</abbr> — это целый мир.
+      Фандом растёт уже с 20<sup>го</sup> века, а манга уходит корнями ещё в 12<sub>й</sub> век.
+    </p>
+
+    <!-- [Разрыв строки и <pre>] -->
+    <p>Эти тайтлы — как хороший плейлист: <br> включил — и уже не хочешь выключать.</p>
+    <pre>
+      <!-- pre: сохранить форматирование -->
+      Сильный герой.  Сложный выбор.
+      Немного драмы.  Больше приключений.
+      Итог: смотри, смакуй, возвращайся.
+    </pre>
+
+    <!-- [Внешняя ссылка в тексте] -->
+    <p>Больше о жанрах и терминах можно почитать на <a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="external">MDN Web Docs</a>.</p>
+
+    <!-- [Цитата + cite] -->
+    <blockquote cite="https://ru.wikipedia.org/wiki/Аниме">
+      «Аниме — японская анимация с характерным стилем и тематиками, получившая широкое распространение во всём мире».
+    </blockquote>
+
+    <hr>
+
+    <!-- ===== Пример карточки тайтла (будущий список) ===== -->
+    <section aria-label="Подборка">
+      <h2 id="top-list">ТОП-подборка</h2>
+      <div class="stack">
+        <!-- [КАРТОЧКА №1] -->
+        <article class="card" aria-label="Карточка аниме">
+          <!-- [Изображение-ссылка на внешний ресурс + width/height] -->
+          <div class="top-badge">ТОП</div>
+          <a href="https://myanimelist.net/anime/33/Berserk" target="_blank" rel="external">
+            <img class="cover" src="images/berserk.jpg"
+                 alt="Обложка аниме Berserk" width="300" height="400">
+          </a>
+          <div>
+            <div class="head">
+              <h3 class="title">Berserk (1997)</h3>
+              <span class="rating" aria-label="Рейтинг">⭐ 9.1</span>
+            </div>
+            <div class="chips" aria-label="Жанры">
+              <span class="chip">Сэйнэн</span>
+              <span class="chip">Драма</span>
+              <span class="chip">Приключения</span>
+            </div>
+            <div class="meta">Студия: Oriental Light &amp; Magic • Серий: 25 • Тип: TV • Год: 1997</div>
+            <p class="desc">
+              Мрачная история о наёмнике по прозвищу Чёрный Мечник. Не ради славы — ради пути сквозь судьбу.
+              Если любишь сильных героев, тяжёлые дилеммы и атмосферу средневековой безысходности — зайдёт отлично.
+            </p>
+            <a class="btn" href="pages/berserk.html">Подробнее</a>
+            <button class="btn add-fav" data-title="Berserk">+ В избранное</button>
+          </div>
+        </article>
+
+        <!-- [КАРТОЧКА №2 — Code Geass] -->
+        <article class="card" aria-label="Карточка аниме">
+          <a href="https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch" target="_blank" rel="external">
+            <img class="cover" src="images/cg.jpg" alt="Обложка Code Geass" width="300" height="400">
+          </a>
+          <div>
+            <div class="head">
+              <h3 class="title">Code Geass (2006)</h3>
+              <span class="rating">⭐ 9.0</span>
+            </div>
+            <div class="chips">
+              <span class="chip">Сэйнэн</span>
+              <span class="chip">Драма</span>
+              <span class="chip">Психология</span>
+            </div>
+            <div class="meta">Студия: Sunrise • Серий: 25 • Тип: TV • Год: 2006</div>
+            <p class="desc">
+            История о юноше, бросившем вызов империи, ставшей чудовищем. Лелуш, изгнанный принц,
+            получивший силу Гиас, решает изменить мир, где справедливость и власть неразделимы.
+            Если тебе близка тема власти, морали и цены гениальности — смотреть обязательно.
+            </p>
+            <a class="btn" href="pages/code-geass.html">Подробнее</a>
+            <button class="btn add-fav" data-title="Code Geass">+ В избранное</button>
+          </div>
+        </article>
+
+         <!-- [КАРТОЧКА №3 — Blue Lock] -->
+        <article class="card" aria-label="Карточка аниме">
+          <a href="https://myanimelist.net/anime/49596/Blue_Lock" target="_blank" rel="external">
+            <img class="cover" src="images/bl.jpg" alt="Обложка Blue Lock" width="300" height="400">
+          </a>
+          <div>
+            <div class="head">
+              <h3 class="title">Blue Lock (2022)</h3>
+              <span class="rating">⭐ 8.4</span>
+            </div>
+            <div class="chips">
+              <span class="chip">Спорт</span>
+              <span class="chip">Драма</span>
+              <span class="chip">Психология</span>
+            </div>
+            <div class="meta">Студия: 8bit • Серий: 24 • Тип: TV • Год: 2022</div>
+            <p class="desc">
+            После поражения на чемпионате мира Япония запускает безумный проект — “Blue Lock”.
+            Здесь выживает лишь тот, кто поставит своё “я” выше команды.
+            Понравится тем, кто ищет адреналин, амбицию и эстетику борьбы до крови.
+            </p>
+            <a class="btn" href="pages/blue-lock.html">Подробнее</a>
+            <button class="btn add-fav" data-title="Blue Lock">+ В избранное</button>
+          </div>
+        </article>
+
+        <!-- [КАРТОЧКА №4 — Tokyo Ghoyl] -->
+        <article class="card" aria-label="Карточка аниме">
+          <a href="https://myanimelist.net/anime/22319/Tokyo_Ghoul" target="_blank" rel="external">
+            <img class="cover" src="images/tk.jpg" alt="Tokyo Ghoul" width="300" height="400">
+          </a>
+          <div>
+            <div class="head">
+              <h3 class="title">Tokyo Ghoul (2014)</h3>
+              <span class="rating">⭐ 8.2</span>
+            </div>
+            <div class="chips">
+              <span class="chip">Сэйнэн</span>
+              <span class="chip">Ужасы</span>
+              <span class="chip">Драма</span>
+            </div>
+            <div class="meta">Студия: Pierrot • Серий: 12 • Тип: TV • Год: 2014</div>
+            <p class="desc">
+            Город, где под маской людей живут чудовища. Канэки становится одним из них и узнаёт,
+            как тонка грань между человечностью и голодом. Зайдёт тем, кто не боится смотреть на собственную тьму.
+            </p>
+            <a class="btn" href="pages/tokyo-ghoul.html">Подробнее</a>
+            <button class="btn add-fav" data-title="Tokyo Ghoul">+ В избранное</button>
+          </div>
+        </article>
+
+        <!-- [КАРТОЧКА №5 — Death Note] -->
+        <article class="card" aria-label="Карточка аниме">
+          <a href="https://myanimelist.net/anime/1535/Death_Note" target="_blank" rel="external">
+            <img class="cover" src="images/dn.jpg" alt="Death Note" width="300" height="400">
+          </a>
+          <div>
+            <div class="head">
+              <h3 class="title">Death Note (2006)</h3>
+              <span class="rating">⭐ 9.2</span>
+            </div>
+            <div class="chips">
+              <span class="chip">Психология</span>
+              <span class="chip">Триллер</span>
+              <span class="chip">Детектив</span>
+            </div>
+            <div class="meta">Студия: Madhouse • Серий: 37 • Тип: TV • Год: 2006</div>
+            <p class="desc">
+            Когда обычный студент получает тетрадь, способную убивать по имени, он решает “очистить мир”.
+            Но каждое действие рождает равновесие, и появляется соперник, способный его вычислить.
+            </p>
+            <a class="btn" href="pages/death-note.html">Подробнее</a>
+            <button class="btn add-fav" data-title="Death Note">+ В избранное</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== РЕЗУЛЬТАТЫ ФИЛЬТРАЦИИ / СОРТИРОВКИ ===== -->
+    <section id="results" aria-label="Результаты обработки массива">
+      <h2>Результаты фильтрации и сортировки</h2>
+      <div class="actions" style="margin-bottom: 1rem;">
+        <button id="filterBtn" class="btn alt">Фильтр: рейтинг 8.5–9.2</button>
+        <button id="sortAsc" class="btn">Сортировать ↑</button>
+        <button id="sortDesc" class="btn">Сортировать ↓</button>
+      </div>
+      <div id="resultsList" class="results-list"></div>
+    </section>
+
+
+    <hr>
+
+    <!-- ===== Видео: трейлер / опенинг ===== -->
+<section id="video" aria-label="Видео: опенинг Berserk (1997)">
+  <h2>Посмотреть атмосферу</h2>
+
+<div class="embed">
+  <iframe
+    src="https://youtu.be/evQd6TVa8H4?si=N0HQ1IfzWaDZa2P_"
+    title="Berserk (1997) Opening"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+  <p class="meta">
+    Если проигрыватель не отобразился — <a href="https://youtu.be/evQd6TVa8H4?si=N0HQ1IfzWaDZa2P_" target="_blank" rel="noopener">смотреть на YouTube</a>.
+  </p>
+</section>
+
+
+    <!-- ===== Независимая статья (ARTICLE) ===== -->
+<article class="review" aria-labelledby="rev-ber">
+  <h2 id="rev-ber">Почему «Berserk (1997)» — культовый</h2>
+  <p class="review-lead">Короткая рецензия без спойлеров.</p>
+
+  <p>
+    «Berserk» — не просто тёмное фэнтези. Это история о цене силы, свободе и одиночестве.
+    Суровая эстетика, мощный саундтрек и неспешная, но давящая драматургия создают редкий
+    эффект — после титров остаётся осадок, а вместе с ним — уважение.
+  </p>
+
+  <p>
+    Кому зайдёт: любителям серьёзных тем, средневековой мрачности, героев с реальной
+    ответственностью за выбор. Кому не стоит: тем, кто ищет лёгкое приключение «на вечер».
+  </p>
+
+  <p class="review-links">
+    <a class="btn alt" href="https://myanimelist.net/anime/33/Berserk" target="_blank" rel="external">Страница на MAL</a>
+    <a class="btn" href="https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%80%D1%81%D0%B5%D1%80%D0%BA_(%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5,_1997)" target="_blank" rel="external">Википедия</a>
+  </p>
+</article>
+
+<!-- ===== Дополнительная панель (ASIDE) ===== -->
+<aside class="facts" aria-labelledby="facts-title">
+  <h2 id="facts-title">Интересные факты об аниме</h2>
+  <ul>
+    <li>Первое японское аниме появилось в 1917 году и длилось всего 4 минуты.</li>
+    <li>Аниме занимает более 60 % всего мирового телевещания по объёму выпуска.</li>
+    <li>«Evangelion» вдохновил десятки режиссёров Голливуда, включая Гильермо дель Торо.</li>
+    <li>В Японии есть музеи, посвящённые манге и аниме, например Ghibli Museum.</li>
+  </ul>
+</aside>
+
+
+
+    <!-- ===== Списки: упорядоченный (с type и start != default) + вложенный ===== -->
+    <section aria-label="Списки">
+      <h2>Как мы выбирали тайтлы</h2>
+      <!-- [Упорядоченный список с type и start] -->
+      <ol type="A" start="3">
+        <li><strong>Рейтинг зрителей</strong> и критиков</li>
+        <li><strong>Влияние на культуру</strong></li>
+        <li>
+          <strong>Личное впечатление</strong>
+          <!-- [Вложенный: ul внутри ol] -->
+          <ul>
+            <li>Стиль визуала</li>
+            <li>Музыка и саунд</li>
+            <li>Цельность истории</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <hr>
+
+    <!-- ===== Список описаний (минимум 5 терминов; у 2 — альтернативные описания) ===== -->
+    <section id="glossary" aria-label="Глоссарий">
+  <h2>Глоссарий</h2>
+
+  <div class="term">
+    <strong>Сёнэн</strong>
+    <span>Жанр для подростков; динамика, героика, дружба.</span>
+  </div>
+
+  <div class="term">
+    <strong>Сэйнэн</strong>
+    <span>Более зрелые темы, серьёзные конфликты.</span>
+    <span>Часто мрачнее, глубже психологически (альтернативное описание).</span>
+  </div>
+
+  <div class="term">
+    <strong>Исэкай</strong>
+    <span>Перемещение героя в другой мир.</span>
+  </div>
+
+  <div class="term">
+    <strong>Меха</strong>
+    <span>Гигантские роботы и люди внутри.</span>
+    <span>Иногда — философия войны и технологий (альтернативное описание).</span>
+  </div>
+
+  <div class="term">
+    <strong>OVA</strong>
+    <span>Эпизоды «только на видео», вне телеэфира.</span>
+  </div>
+</section>
+
+
+    <hr>
+
+<section class="float-demo" aria-lsabel="История жанров">
+  <h2>Немного истории жанров</h2>
+  <img src="images/geass.jpg" alt="Коллаж из аниме-постеров" width="220" height="140">
+  <p>
+    В послевоенной Японии анимация росла вместе с мангой, и уже в 60-е появились первые сериалы
+    для телевидения. Постепенно оформились жанры — от сёнэна и сэйнэна до меха и фантастики.
+    Ключевым стало сочетание визуальной выразительности и глубоких тем.
+  </p>
+  <p>
+    Расцвет пришёлся на 80-90-е годы, когда появились культовые студии и авторы,
+    а VHS и телевидение распространили аниме по всему миру.
+  </p>
+</section>
+
+
+    <!-- ===== Мини-карта жанров (компактно и аккуратно) ===== -->
+<section aria-label="Карта жанров">
+  <h2>Жанры (кликабельно)</h2>
+  <p>Нажми на зоны мини-постера, чтобы открыть подборки жанров.</p>
+
+  <figure style="display:grid; gap:8px; justify-items:start;">
+    <img
+      src="images/collage.jpg"
+      alt="Мини-постер с зонами: круг, прямоугольник и треугольник"
+      usemap="#genre-mini"
+      width="560" height="320"
+      style="border:1px solid rgba(0,0,0,.15); border-radius:12px; display:block;"
+    >
+
+    <map name="genre-mini">
+      <!-- круг: x,y,радиус -->
+      <area shape="circle" coords="90,130,55"
+            href="https://shikimori.one/animes/genre/drama"
+            alt="Драма" target="_blank" rel="external">
+
+      <!-- прямоугольник: left,top,right,bottom -->
+      <area shape="rect" coords="180,60,310,155"
+            href="https://shikimori.one/animes/genre/action"
+            alt="Экшен" target="_blank" rel="external">
+
+      <!-- многоугольник: x1,y1,x2,y2,... -->
+      <area shape="poly" coords="330,190,400,90,400,190"
+            href="https://shikimori.one/animes/genre/adventure"
+            alt="Приключения" target="_blank" rel="external">
+    </map>
+
+    <figcaption style="font-size:14px; opacity:.8">
+      Клик по зонам: ● Драма, ■ Экшен, ▲ Приключения.
+    </figcaption>
+  </figure>
+</section>
+
+<section class="gallery" aria-label="Галерея постеров">
+  <h2>Галерея</h2>
+  <div class="grid">
+    <figure>
+      <img src="images/berserk.jpg" alt="Berserk">
+      <figcaption>
+        <span>Berserk</span>
+        <a href="#top-list" class="uibt">Подробнее</a>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/geass.jpg" alt="Code Geass">
+      <figcaption>
+        <span>Code Geass</span>
+        <a href="#top-list" class="uibt">Подробнее</a>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/kaneki.jpg" alt="Tokyo Ghoul">
+      <figcaption>
+        <span>Tokyo Ghoul</span>
+        <a href="#top-list" class="uibt">Подробнее</a>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/note.jpg" alt="Death Note">
+      <figcaption>
+        <span>Death Note</span>
+        <a href="#top-list" class="uibt">Подробнее</a>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/bl.jpg" alt="Blue Lock">
+      <figcaption>
+        <span>Blue Lock</span>
+        <a href="#top-list" class="uibt">Подробнее</a>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+
+
+
+    <hr>
+
+    <!-- ===== Якоря: наверх (h1) и к подзаголовку в конце (h2) ===== -->
+    <p>
+      <a href="#top">↑ К заголовку страницы</a> •
+      <a href="#contacts">Вниз, к контактам</a>
+    </p>
+
+<!-- ===== Предложить тайтл (FORM) ===== -->
+<section id="suggest" aria-label="Предложить тайтл">
+  <div class="section-head">
+    <h2>Предложить тайтл</h2>
+
+    <!-- Уведомления -->
+    <details class="notif" role="group">
+      <summary class="notif-btn" aria-label="Открыть уведомления" title="Уведомления">
+        🔔
+        <span class="badge" aria-label="Новых уведомлений: 3">3</span>
+      </summary>
+
+      <ul class="notif-list" role="list">
+        <li>
+          <b>+ Новый тайтл:</b> <a href="#top-list">Death Note</a> добавлен в ТОП.
+          <time datetime="2025-10-08T22:30">только что</time>
+        </li>
+        <li>
+          <b>↑ Поднялся:</b> <a href="#top-list">Berserk (1997)</a> теперь в топ-1.
+          <time datetime="2025-10-08T20:00">2 ч назад</time>
+        </li>
+        <li>
+          <b>Рецензия:</b> обновили «Berserk».
+          <time datetime="2025-10-07T18:00">вчера</time>
+        </li>
+      </ul>
+    </details>
+  </div>
+
+<!-- ===== Мини-блок авторизации ===== -->
+<section id="login" class="login" aria-label="Авторизация">
+  <div class="login-inner">
+    <h2>Вход на сайт</h2>
+    <form class="login-form" action="#" method="post" novalidate>
+      <div class="row">
+        <input type="text" name="username" placeholder="Имя пользователя" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+      </div>
+      <div class="actions">
+        <button type="button" id="loginBtn" class="btn">Войти</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+  <!-- ===== Форма регистрации (glassmorphism) ===== -->
+<section id="signup" class="signup" aria-label="Регистрация">
+  <div class="signup-inner">
+    <h2>Регистрация</h2>
+    <p class="muted">Создать аккаунт, чтобы предлагать тайтлы и оставлять рецензии.</p>
+
+    <form class="signup-form" action="#" method="post" novalidate>
+      <div class="captcha-block">
+        <label for="captchaInput">Введите код с картинки:</label>
+        <div class="captcha-box">
+          <span id="captchaText"></span>
+          <button type="button" id="refreshCaptcha" title="Обновить капчу">⟳</button>
+        </div>
+        <input type="text" id="captchaInput" placeholder="Введите код" required>
+      </div>
+
+      <div class="row">
+        <input type="text" name="username" placeholder="Имя" required>
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="row">
+        <input type="password" name="pass" placeholder="Пароль" required>
+        <input type="password" name="pass2" placeholder="Повтор пароля" required>
+      </div>
+      <div class="actions">
+        <button type="submit" class="btn">Зарегистрироваться</button>
+        <button type="reset" class="btn alt">Очистить</button>
+      </div>
+    </form>
+  </div>
+
+  <span class="bubble b1"></span>
+  <span class="bubble b2"></span>
+  <span class="bubble b3"></span>
+  <span class="bubble b4"></span>
+</section>
+
+  <form class="form-card" method="post" action="#" enctype="multipart/form-data" novalidate>
+    <!-- Группа: о тайтле -->
+    <fieldset class="fs">
+      <legend>О тайтле</legend>
+
+      <div class="form-grid">
+        <label for="title">Название*</label>
+        <input type="text" id="title" name="title"
+               placeholder="Напр.: Monster"
+               minlength="2" maxlength="80" required>
+
+        <label for="year">Год</label>
+        <input type="number" id="year" name="year"
+               min="1960" max="2030" step="1" placeholder="1997">
+
+        <label>Тип</label>
+        <div class="inline">
+          <label><input type="radio" name="kind" id="kind-tv" value="tv" checked> TV</label>
+          <label><input type="radio" name="kind" id="kind-ona" value="ona"> ONA</label>
+          <label><input type="radio" name="kind" id="kind-movie" value="movie"> Фильм</label>
+        </div>
+
+        <label for="poster">Постер</label>
+        <input type="file" id="poster" name="poster" accept="image/*">
+
+        <label>Жанры</label>
+        <div class="inline">
+          <label><input type="checkbox" name="genres" value="adventure" checked> Приключения</label>
+          <label><input type="checkbox" name="genres" value="drama"> Драма</label>
+          <label><input type="checkbox" name="genres" value="seinen"> Сэйнэн</label>
+        </div>
+
+        <label for="watchedAt">Когда смотрели</label>
+        <input type="datetime-local" id="watchedAt" name="watchedAt">
+      </div>
+
+      <label for="themes">Любимые темы (Можно выбрать несколько)*</label>
+      <select id="themes" name="themes" size="4" multiple required>
+        <option value="dark" selected>Тёмное фэнтези</option>
+        <option value="mecha">Меха</option>
+        <option value="psych">Психология</option>
+        <option value="romance">Романтика</option>
+      </select>
+
+      <label for="reason" class="block" style="margin-top:.5rem;">Почему добавить?*</label>
+      <textarea id="reason" name="reason" rows="5" cols="30"
+                minlength="20" maxlength="600"
+                placeholder="Коротко, без спойлеров" required></textarea>
+    </fieldset>
+
+    <!-- Группа: контакты -->
+    <fieldset class="fs">
+      <legend>Контакты</legend>
+
+      <div class="form-grid">
+        <label for="yourname">Имя*</label>
+        <input type="text" id="yourname" name="yourname"
+               placeholder="Имя"
+               pattern="^[A-Za-zА-Яа-яЁё\-\s]{2,}$" required>
+
+        <label for="email">Email*</label>
+        <input type="email" id="email" name="email"
+               placeholder="name@example.com" required>
+
+        <label for="tel">Телефон</label>
+        <input type="tel" id="tel" name="tel"
+               placeholder="+7 (999) 123-45-67"
+               pattern="^\+7\s?\(?\d{3}\)?\s?\d{3}-?\d{2}-?\d{2}$">
+
+        <label for="pass">Код-модератора</label>
+        <input type="password" id="pass" name="pass"
+               minlength="6" maxlength="32"
+               placeholder="Необязательно">
+      </div>
+
+      <label class="agree inline" style="margin-top:.5rem;">
+        <input type="checkbox" id="agree" name="agree" required checked>
+        Согласен с правилами публикации
+      </label>
+    </fieldset>
+
+    <div class="actions">
+      <button type="submit" class="btn">Отправить</button>
+      <button type="reset" class="btn alt">Сбросить</button>
+    </div>
+  </form>
+</section>
+
+<!-- ===== Карта: Токио (iframe) ===== -->
+<section id="map" aria-label="Карта: родина аниме — Токио">
+  <h2>Родина аниме — Токио</h2>
+
+  <div class="embed">
+    <!-- Вставка с Google Maps -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.868768382236!2d139.70030297626302!3d35.68959267258558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd1b274c5ad%3A0x2d9c2d3f9e8f3b5e!2sShinjuku%2C%20Tokyo!5e0!3m2!1sru!2sjp!4v1696430000000!5m2!1sru!2sjp"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+      title="Карта: Shinjuku, Tokyo">
+    </iframe>
+  </div>
+
+  <p class="meta">
+    Нажми <a href="https://maps.google.com/?q=Shinjuku,Tokyo" target="_blank" rel="noopener">открыть в Google Maps</a>,
+    если карта не загрузилась.
+  </p>
+</section>
+
+
+    <!-- Контакты: ссылка на телефон и почту -->
+    <section id="contacts" aria-label="Контакты">
+      <h2>Контакты</h2>
+      <p>Если хочешь предложить тайтл в ТОП — пиши или звони:</p>
+      <p>
+        Телефон: <a href="tel:+79777550071">+7 (977) 755 00 71</a><br>
+        Почта: <a href="mailto:saadi.ahmedov@yandex.ru?subject=Предложение%20тайтла&body=Здравствуйте!%20Предлагаю%20добавить%20в%20ТОП...">saadi.ahmedov@yandex.ru</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social-row" aria-label="Социальные сети">
+        <h3 class="sr-only">Мы в соцсетях</h3>
+        <div class="social">
+          <a class="social-btn" href="#" aria-label="Telegram" title="Telegram">
+            <span class="ico">✈</span><span class="txt">Telegram</span>
+          </a>
+          <a class="social-btn" href="#" aria-label="Instagram" title="Instagram">
+            <span class="ico">📸</span><span class="txt">Instagram</span>
+          </a>
+          <a class="social-btn" href="#" aria-label="YouTube" title="YouTube">
+            <span class="ico">▶</span><span class="txt">YouTube</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <address class="made-by">
+          Сделано: <a href="mailto:saadi.ahmedov@yandex.ru">Саади Ахмедов</a>
+        </address>
+        <small>© 2025 AnimeGuide</small>
+        <div class="creator-credit" aria-label="Автор сайта">
+          Created by -
+          <a href="https://akhmedovaura.vercel.app/" target="_blank" rel="noopener noreferrer">AkhmedovAura</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+ <a href="#top" class="to-top" aria-label="Наверх">↑</a>
+ <script src="script.js"></script>
+</body>
+</html>
