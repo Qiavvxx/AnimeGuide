@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход — AnimeGuide</title>
+
+  <link rel="stylesheet" href="../style.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<header class="site">
+  <nav>
+    <div class="logo"><b>Anime</b>Guide</div>
+    <div class="nav-links">
+      <a href="../index.html">Главная</a>
+      <a href="../index.html#top-list">ТОП-5</a>
+      <a href="../index.html#glossary">Глоссарий</a>
+      <a href="../index.html#contacts">Контакты</a>
+    </div>
+  </nav>
+    <div id="simple-burger">
+      <div class="sb-btn"><span></span><span></span><span></span></div>
+
+      <nav class="sb-menu">
+        <a href="../#top">Главная</a>
+        <a href="../#top-list">ТОП-5</a>
+        <a href="../#glossary">Глоссарий</a>
+        <a href="../#contacts">Контакты</a>
+        <a href="login.html">Вход</a>
+        <a href="signup.html">Регистрация</a>
+      </nav>
+    </div>
+</header>
+
+<main class="container">
+
+  <section class="login" style="max-width:460px; margin:40px auto;">
+    <h2 style="text-align:center;">Вход в аккаунт</h2>
+
+    <form class="login-form" action="#" method="post" novalidate>
+      <div class="row">
+        <input type="text" name="username" placeholder="Имя пользователя" required>
+      </div>
+
+      <div class="row">
+        <input type="password" name="password" placeholder="Пароль" required>
+      </div>
+
+      <div class="actions" style="justify-content:center;">
+        <button type="submit" class="btn">Войти</button>
+      </div>
+    </form>
+
+    <p style="text-align:center; margin-top:1rem;">
+      Нет аккаунта?
+      <a href="signup.html">Зарегистрироваться</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="social-row">
+      <div class="social">
+        <a class="social-btn" href="#"><span class="ico">✈</span><span class="txt">Telegram</span></a>
+        <a class="social-btn" href="#"><span class="ico">📸</span><span class="txt">Instagram</span></a>
+        <a class="social-btn" href="#"><span class="ico">▶</span><span class="txt">YouTube</span></a>
+      </div>
+    </div>
+    <address class="made-by">
+      Сделано: <a href="mailto:saadi.ahmedov@yandex.ru">Саади Ахмедов</a>
+    </address>
+    <small>© 2025 AnimeGuide</small>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

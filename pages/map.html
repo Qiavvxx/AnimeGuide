@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Карта — AnimeGuide</title>
+
+  <link rel="stylesheet" href="../style.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png?v=6">
+</head>
+
+<body>
+
+<header class="site">
+  <nav>
+    <div class="logo"><b><img src="/favicon.png" width="20" height="20" style="vertical-align:middle; margin-right:6px;">Anime</b>Guide</div>
+
+    <div class="nav-links">
+      <a href="../index.html">Главная</a>
+      <a href="../index.html#top-list">ТОП-5</a>
+      <a href="../index.html#glossary">Глоссарий</a>
+      <a href="map.html" class="current">Карта</a>
+      <a href="../index.html#contacts">Контакты</a>
+
+      <a href="login.html" class="auth-link">Вход</a>
+      <a href="signup.html" class="auth-link">Регистрация</a>
+
+      <div class="fav-icon">❤️ <span id="favCount">0</span></div>
+    </div>
+  </nav>
+  <div id="simple-burger">
+    <div class="sb-btn"><span></span><span></span><span></span></div>
+
+      <nav class="sb-menu">
+        <a href="../#top">Главная</a>
+        <a href="../#top-list">ТОП-5</a>
+        <a href="../#glossary">Глоссарий</a>
+        <a href="../#contacts">Контакты</a>
+        <a href="login.html">Вход</a>
+        <a href="signup.html">Регистрация</a>
+      </nav>
+  </div>
+</header>
+
+
+<main class="container">
+  
+  <section id="map" aria-label="Карта: родина аниме — Токио">
+    <h1>Карта аниме-миров</h1>
+    <p class="lead">Токио — сердце индустрии. Смотри на карту и вдохновляйся.</p>
+
+    <div class="embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.868768382236!2d139.70030297626302!3d35.68959267258558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd1b274c5ad%3A0x2d9c2d3f9e8f3b5e!2sShinjuku%2C%20Tokyo!5e0!3m2!1sru!2sjp!4v1696430000000!5m2!1sru!2sjp"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <p class="meta">
+      Нажми <a href="https://maps.google.com/?q=Shinjuku,Tokyo" target="_blank" rel="noopener">открыть в Google Maps</a>,
+      если карта не загрузилась.
+    </p>
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="social-row">
+      <h3 class="sr-only">Мы в соцсетях</h3>
+      <div class="social">
+        <a class="social-btn" href="#" aria-label="Telegram"><span class="ico">✈</span><span class="txt">Telegram</span></a>
+        <a class="social-btn" href="#" aria-label="Instagram"><span class="ico">📸</span><span class="txt">Instagram</span></a>
+        <a class="social-btn" href="#" aria-label="YouTube"><span class="ico">▶</span><span class="txt">YouTube</span></a>
+      </div>
+    </div>
+    <address class="made-by">Сделано: <a href="mailto:saadi.ahmedov@yandex.ru">Саади Ахмедов</a></address>
+    <small>© 2025 AnimeGuide</small>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+<a href="#top" class="to-top" aria-label="Наверх">↑</a>
+
+<script src="../script.js"></script>
+</body>
+</html>

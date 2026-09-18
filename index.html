@@ -6,9 +6,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AnimeGuide</title>
-
+  
 
   <!-- [Фавиконка]  -->
+  <link rel="icon" href="favicon.ico">
   <link rel="icon" type="image/png" href="favicon.png?v=6">
 </head>
 <body>
@@ -22,6 +23,10 @@
         <a href="#top-list">ТОП-5</a>
         <a href="#glossary">Глоссарий</a>
         <a href="#contacts">Контакты</a>
+
+        <a href="pages/login.html" class="auth-link">Вход</a>
+        <a href="pages/signup.html" class="auth-link">Регистрация</a>
+
         <div class="fav-icon">
           ❤️ <span id="favCount">0</span>
         </div>
@@ -30,32 +35,22 @@
         <input type="search" placeholder="Поиск по тайтлам" aria-label="Поиск">
         <button class="btn alt" type="button">Найти</button>
       </form>
-<!-- Бургер-переключатель -->
-<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Открыть меню">
 
-<!-- Кнопка-бургер -->
-<label class="burger" for="nav-toggle" aria-label="Открыть меню">
-  <span></span>
-</label>
-
-<!-- Мобильная панель -->
-<div class="nav-panel" role="dialog" aria-modal="true" aria-labelledby="mnav-title">
-  <div class="nav-panel-head">
-    <div id="mnav-title" class="logo"><b>Anime</b>Guide</div>
-    <label class="close" for="nav-toggle" aria-label="Закрыть меню">✕</label>
-  </div>
-  <nav class="mnav-links" role="navigation">
-    <a href="#top" class="current">Главная</a>
-    <a href="#top-list">ТОП-5</a>
-    <a href="#glossary">Глоссарий</a>
-    <a href="#contacts">Контакты</a>
-
-  </nav>
-</div>
-
-<!-- Полупрозрачный фон за панелью -->
-<div class="scrim"></div>
     </nav>
+
+    <div id="simple-burger">
+      <div class="sb-btn"><span></span><span></span><span></span></div>
+
+      <nav class="sb-menu">
+        <a href="#top">Главная</a>
+        <a href="#top-list">ТОП-5</a>
+        <a href="#glossary">Глоссарий</a>
+        <a href="#contacts">Контакты</a>
+        <a href="pages/login.html">Вход</a>
+        <a href="pages/signup.html">Регистрация</a>
+      </nav>
+    </div>
+
   </header>
 
   <main class="container" id="top">
@@ -63,7 +58,7 @@
     <h1>Лучшие аниме-сериалы</h1>
     <p class="tagline lead">
       <!-- [p, b, i, em, u, strong, sub, sup, abbr] -->
-      Это наш небольшой <b>гайд</b> по тайтлам, которые <em>стоит</em> посмотреть.
+      Это наш небольшой <b>гайд</b> по тайтлам, которые <em>стоит</em> посмотреть. 
       Мы делаем акцент на <u>описаниях</u> и причинах «почему это классно», а не на просмотре.
       Здесь и «классика» с <strong>рейтинговыми</strong> шедеврами, и свежие открытия.
       Кстати, <abbr title="Japanese Animation">аниме</abbr> — это целый мир.
@@ -95,7 +90,6 @@
       <div class="stack">
         <!-- [КАРТОЧКА №1] -->
         <article class="card" aria-label="Карточка аниме">
-          <!-- [Изображение-ссылка на внешний ресурс + width/height] -->
           <div class="top-badge">ТОП</div>
           <a href="https://myanimelist.net/anime/33/Berserk" target="_blank" rel="external">
             <img class="cover" src="images/berserk.jpg"
@@ -116,7 +110,7 @@
               Мрачная история о наёмнике по прозвищу Чёрный Мечник. Не ради славы — ради пути сквозь судьбу.
               Если любишь сильных героев, тяжёлые дилеммы и атмосферу средневековой безысходности — зайдёт отлично.
             </p>
-            <a class="btn" href="Pages/berserk.html">Подробнее</a>
+            <a class="btn" href="pages/berserk.html">Подробнее</a>
             <button class="btn add-fav" data-title="Berserk">+ В избранное</button>
           </div>
         </article>
@@ -142,7 +136,7 @@
             получивший силу Гиас, решает изменить мир, где справедливость и власть неразделимы.
             Если тебе близка тема власти, морали и цены гениальности — смотреть обязательно.
             </p>
-            <a class="btn" href="Pages/code-geass.html">Подробнее</a>
+            <a class="btn" href="pages/code-geass.html">Подробнее</a>
             <button class="btn add-fav" data-title="Code Geass">+ В избранное</button>
           </div>
         </article>
@@ -168,7 +162,7 @@
             Здесь выживает лишь тот, кто поставит своё “я” выше команды.
             Понравится тем, кто ищет адреналин, амбицию и эстетику борьбы до крови.
             </p>
-            <a class="btn" href="Pages/blue-lock.html">Подробнее</a>
+            <a class="btn" href="pages/blue-lock.html">Подробнее</a>
             <button class="btn add-fav" data-title="Blue Lock">+ В избранное</button>
           </div>
         </article>
@@ -193,7 +187,7 @@
             Город, где под маской людей живут чудовища. Канэки становится одним из них и узнаёт,
             как тонка грань между человечностью и голодом. Зайдёт тем, кто не боится смотреть на собственную тьму.
             </p>
-            <a class="btn" href="Pages/tokyo-ghoul.html">Подробнее</a>
+            <a class="btn" href="pages/tokyo-ghoul.html">Подробнее</a>
             <button class="btn add-fav" data-title="Tokyo Ghoul">+ В избранное</button>
           </div>
         </article>
@@ -218,7 +212,7 @@
             Когда обычный студент получает тетрадь, способную убивать по имени, он решает “очистить мир”.
             Но каждое действие рождает равновесие, и появляется соперник, способный его вычислить.
             </p>
-            <a class="btn" href="Pages/death-note.html">Подробнее</a>
+            <a class="btn" href="pages/death-note.html">Подробнее</a>
             <button class="btn add-fav" data-title="Death Note">+ В избранное</button>
           </div>
         </article>
@@ -240,24 +234,13 @@
 
     <hr>
 
-    <!-- ===== Видео: трейлер / опенинг ===== -->
-<section id="video" aria-label="Видео: опенинг Berserk (1997)">
-  <h2>Посмотреть атмосферу</h2>
-
-<div class="embed">
-  <iframe
-    src="https://youtu.be/evQd6TVa8H4?si=N0HQ1IfzWaDZa2P_"
-    title="Berserk (1997) Opening"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-
-  <p class="meta">
-    Если проигрыватель не отобразился — <a href="https://youtu.be/evQd6TVa8H4?si=N0HQ1IfzWaDZa2P_" target="_blank" rel="noopener">смотреть на YouTube</a>.
+<section class="map-link-block">
+  <p class="map-link-text">
+    Если хочешь ощутить атмосферу <b>Berserk</b> —  
+    <a href="pages/trailer.html" class="map-link">смотри опенинг здесь</a>.
   </p>
 </section>
+
 
 
     <!-- ===== Независимая статья (ARTICLE) ===== -->
@@ -317,7 +300,7 @@
     <hr>
 
     <!-- ===== Список описаний (минимум 5 терминов; у 2 — альтернативные описания) ===== -->
-    <section id="glossary" aria-label="Глоссарий">
+<section id="glossary" aria-label="Глоссарий">
   <h2>Глоссарий</h2>
 
   <div class="term">
@@ -351,7 +334,7 @@
 
     <hr>
 
-<section class="float-demo" aria-label="История жанров">
+<section class="float-demo" aria-lsabel="История жанров">
   <h2>Немного истории жанров</h2>
   <img src="images/geass.jpg" alt="Коллаж из аниме-постеров" width="220" height="140">
   <p>
@@ -363,6 +346,11 @@
     Расцвет пришёлся на 80-90-е годы, когда появились культовые студии и авторы,
     а VHS и телевидение распространили аниме по всему миру.
   </p>
+  <p class="more-info">
+    Хотите погрузиться глубже? 
+    <a href="pages/genres.html">Читайте подробнее о становлении аниме-жанров →</a>
+</p>
+
 </section>
 
 
@@ -403,7 +391,7 @@
   </figure>
 </section>
 
-<section class="gallery" aria-label="Галерея постеров">
+<section class="gallery gallery-top" aria-label="Галерея постеров">
   <h2>Галерея</h2>
   <div class="grid">
     <figure>
@@ -489,59 +477,7 @@
     </details>
   </div>
 
-<!-- ===== Мини-блок авторизации ===== -->
-<section id="login" class="login" aria-label="Авторизация">
-  <div class="login-inner">
-    <h2>Вход на сайт</h2>
-    <form class="login-form" action="#" method="post" novalidate>
-      <div class="row">
-        <input type="text" name="username" placeholder="Имя пользователя" required>
-        <input type="password" name="password" placeholder="Пароль" required>
-      </div>
-      <div class="actions">
-        <button type="button" id="loginBtn" class="btn">Войти</button>
-      </div>
-    </form>
-  </div>
-</section>
 
-
-  <!-- ===== Форма регистрации (glassmorphism) ===== -->
-<section id="signup" class="signup" aria-label="Регистрация">
-  <div class="signup-inner">
-    <h2>Регистрация</h2>
-    <p class="muted">Создать аккаунт, чтобы предлагать тайтлы и оставлять рецензии.</p>
-
-    <form class="signup-form" action="#" method="post" novalidate>
-      <div class="captcha-block">
-        <label for="captchaInput">Введите код с картинки:</label>
-        <div class="captcha-box">
-          <span id="captchaText"></span>
-          <button type="button" id="refreshCaptcha" title="Обновить капчу">⟳</button>
-        </div>
-        <input type="text" id="captchaInput" placeholder="Введите код" required>
-      </div>
-
-      <div class="row">
-        <input type="text" name="username" placeholder="Имя" required>
-        <input type="email" name="email" placeholder="Email" required>
-      </div>
-      <div class="row">
-        <input type="password" name="pass" placeholder="Пароль" required>
-        <input type="password" name="pass2" placeholder="Повтор пароля" required>
-      </div>
-      <div class="actions">
-        <button type="submit" class="btn">Зарегистрироваться</button>
-        <button type="reset" class="btn alt">Очистить</button>
-      </div>
-    </form>
-  </div>
-
-  <span class="bubble b1"></span>
-  <span class="bubble b2"></span>
-  <span class="bubble b3"></span>
-  <span class="bubble b4"></span>
-</section>
 
   <form class="form-card" method="post" action="#" enctype="multipart/form-data" novalidate>
     <!-- Группа: о тайтле -->
@@ -631,24 +567,10 @@
   </form>
 </section>
 
-<!-- ===== Карта: Токио (iframe) ===== -->
-<section id="map" aria-label="Карта: родина аниме — Токио">
-  <h2>Родина аниме — Токио</h2>
-
-  <div class="embed">
-    <!-- Вставка с Google Maps -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.868768382236!2d139.70030297626302!3d35.68959267258558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd1b274c5ad%3A0x2d9c2d3f9e8f3b5e!2sShinjuku%2C%20Tokyo!5e0!3m2!1sru!2sjp!4v1696430000000!5m2!1sru!2sjp"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      allowfullscreen
-      title="Карта: Shinjuku, Tokyo">
-    </iframe>
-  </div>
-
-  <p class="meta">
-    Нажми <a href="https://maps.google.com/?q=Shinjuku,Tokyo" target="_blank" rel="noopener">открыть в Google Maps</a>,
-    если карта не загрузилась.
+<section class="map-link-block">
+  <p class="map-link-text">
+    Хочешь увидеть родину аниме — улицы, где зарождались легенды?  
+    <a href="pages/map.html" class="map-link">Загляни на карту Токио</a>.
   </p>
 </section>
 
@@ -665,33 +587,27 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="social-row" aria-label="Социальные сети">
-        <h3 class="sr-only">Мы в соцсетях</h3>
-        <div class="social">
-          <a class="social-btn" href="#" aria-label="Telegram" title="Telegram">
-            <span class="ico">✈</span><span class="txt">Telegram</span>
-          </a>
-          <a class="social-btn" href="#" aria-label="Instagram" title="Instagram">
-            <span class="ico">📸</span><span class="txt">Instagram</span>
-          </a>
-          <a class="social-btn" href="#" aria-label="YouTube" title="YouTube">
-            <span class="ico">▶</span><span class="txt">YouTube</span>
-          </a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <address class="made-by">
-          Сделано: <a href="mailto:saadi.ahmedov@yandex.ru">Саади Ахмедов</a>
-        </address>
-        <small>© 2025 AnimeGuide</small>
-        <div class="creator-credit" aria-label="Автор сайта">
-          Created by -
-          <a href="https://akhmedovaura.vercel.app/" target="_blank" rel="noopener noreferrer">AkhmedovAura</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div class="container">
+    <div class="social-row" aria-label="Социальные сети">
+    <h3 class="sr-only">Мы в соцсетях</h3>
+    <div class="social">
+      <a class="social-btn" href="#" aria-label="Telegram" title="Telegram">
+        <span class="ico">✈</span><span class="txt">Telegram</span>
+      </a>
+      <a class="social-btn" href="#" aria-label="Instagram" title="Instagram">
+        <span class="ico">📸</span><span class="txt">Instagram</span>
+      </a>
+      <a class="social-btn" href="#" aria-label="YouTube" title="YouTube">
+        <span class="ico">▶</span><span class="txt">YouTube</span>
+      </a>
+  </div>
+</div>
+    <address class="made-by">
+      Сделано: <a href="mailto:saadi.ahmedov@yandex.ru">Саади Ахмедов</a>
+    </address>
+    <small>© 2025 AnimeGuide</small>
+  </div>
+</footer>
 
  <a href="#top" class="to-top" aria-label="Наверх">↑</a>
  <script src="script.js"></script>

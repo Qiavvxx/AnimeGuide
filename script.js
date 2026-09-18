@@ -107,7 +107,6 @@ const Favorites = {
     } else {
       console.log(`"${title}" не найдено в избранном.`);
     }
-    this.show();
   },
 
   count() {
@@ -166,13 +165,13 @@ function renderResults(list, title = "Результаты") {
 }
 
 function filterByRating(min, max) {
-  const result = animeList.filter(a => a.rating >= min && a.rating <= max);
+  const result = animeList.filter(a => a.rating > min && a.rating < max);
   renderResults(result, `Аниме с рейтингом от ${min} до ${max}`);
 }
 
 function sortByRating(order = "asc") {
   const sorted = [...animeList].sort((a, b) =>
-    order === "asc" ? a.rating - b.rating : b.rating - a.rating
+    order === "asc" ? b.rating - a.rating : a.rating - b.rating
   );
   renderResults(sorted, `Сортировка по рейтингу (${order === "asc" ? "возрастание" : "убывание"})`);
 }
@@ -249,7 +248,7 @@ function showNotification(text) {
 }
 
 
-//  ПРАКТИЧЕСКАЯ №13:
+//  ПРАКТИЧЕСКАЯ №13: 
 "use strict";
 
 /* 1. Клик по изображению галереи  */
@@ -443,3 +442,23 @@ function resetIdleTimer() {
 }
 ["mousemove", "keydown", "scroll"].forEach(ev => window.addEventListener(ev, resetIdleTimer));
 resetIdleTimer();
+
+const sbBtn = document.querySelector(".sb-btn");
+const sbMenu = document.querySelector(".sb-menu");
+
+sbBtn.addEventListener("click", () => {
+  sbBtn.classList.toggle("open");
+  sbMenu.classList.toggle("open");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".gallery .grid");
+  if (slider) slider.scrollLeft += 1;
+});
+
+document.querySelectorAll(".btn-fav").forEach(btn => {
+  btn.addEventListener("click", () => {
+    let count = Number(localStorage.getItem("favCount") || 0);
+    localStorage.setItem("favCount", ++count);
+  });
+});

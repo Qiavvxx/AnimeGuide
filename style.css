@@ -24,13 +24,7 @@
 
 
     *{box-sizing:border-box}
-    html,body{margin:0}
-    pre{
-      max-width:100%;
-      overflow-x:auto;
-      white-space:pre-wrap;
-      overflow-wrap:anywhere;
-    }
+    html,body{margin:0; overflow-x: hidden;}
     body{
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       background:var(--bg); color:var(--ink);
@@ -116,7 +110,7 @@
   .review h2{ margin-top:0 }
   .review-lead{ font-size:15px; opacity:.8; margin-top:-6px; }
   .review-links{ display:flex; gap:12px; flex-wrap:wrap; }
-
+  
   .review-links a {
   appearance: none;
   border: 0;
@@ -256,7 +250,7 @@
 
   /* visited — слегка приглушаем тон, но не ломаем палитру */
   .nav-links a:visited{
-    color: #222;
+    color: #222;          
     opacity: .95;
   }
 
@@ -325,8 +319,8 @@
 
 .actions{display:flex; gap:.75rem; margin-top:.5rem;}
 
-/* Блоки карты/видео */
-#map, #video{
+/* Блоки карты */
+#map {
   background:#fff;
   border:1px solid rgba(0,0,0,.06);
   border-radius:var(--radius);
@@ -349,122 +343,13 @@
   border:0;
 }
 
-#map figure {
-  max-width: 100%;
-  margin: 0;
-}
-
-#map figure img {
-  max-width: 100%;
-  height: auto;
-}
-
-img[usemap] {
-  max-width: 100%;
-  height: auto;
-}
-
 /* подпись/мета */
 .meta{font-size:.92rem; opacity:.75; margin-top:.5rem}
 
-/* прячем чекбокс (можно и visibility:hidden) */
-#nav-toggle{ display:none; }
-
-/* По умолчанию (десктоп) скрыто */
-.burger, .nav-panel, .scrim { display: none; }
-
-@media (max-width: 900px){
-  .nav-links{ display:none; }
-  .search{ display:none; }
-
-  /* Кнопка-бургер справа */
-  .burger{
-    display:block;
-    width:34px; height:26px;
-    position:relative;
-    margin-left:auto;         /* важное: уводим вправо */
-    cursor:pointer;
-    z-index:2001;
-  }
-  .burger span,
-  .burger span::before,
-  .burger span::after{
-    content:"";
-    position:absolute; left:0; right:0;
-    height:3px; border-radius:3px;
-    background:#111;
-    transition:transform .25s, top .25s, opacity .25s, background .25s;
-  }
-  .burger span{ top:50%; transform:translateY(-50%); }
-  .burger span::before{ top:-9px; }
-  .burger span::after { top: 9px; }
-
-  /* Фикс-панель */
-  .nav-panel{
-    display:flex;
-    position:fixed; top:0; right:0; bottom:0; left:auto;  /* явная фиксация */
-    width:80vw; max-width:360px;
-    background:#fff;
-    box-shadow:-12px 0 24px rgba(0,0,0,.14);
-    transform:translateX(100%);           /* спрятана */
-    transition:transform .28s ease;
-    padding:84px 20px 24px;
-    flex-direction:column; gap:14px;
-    overflow-y:auto;                       /* внутренняя прокрутка */
-    z-index:2000;                          /* поверх шапки/контента */
-  }
-
-  /* шапка внутри панели */
-  .nav-panel-head{
-    position:sticky; top:0;
-    display:flex; align-items:center; justify-content:space-between;
-    gap:12px;
-    margin:-60px -20px 8px;  /* нивелируем верхний padding под фикс-шапку */
-    padding:14px 20px;
-    background:#fff;
-    border-bottom:1px solid rgba(0,0,0,.06);
-    z-index:1;
-  }
-  .nav-panel-head .logo{ font-weight:900; }
-  .nav-panel .close{
-    cursor:pointer; font-size:28px; line-height:1;
-  }
-
-  /* список ссылок панели */
-  .mnav-links{ display:grid; gap:10px; }
-  .mnav-links a{
-    display:block; font-weight:700; color:#111;
-    text-decoration:none; padding:12px 8px; border-radius:10px;
-  }
-  .mnav-links a:active{ background:rgba(0,0,0,.04); }
-
-  /* Подложка за панелью */
-  .scrim{
-    display:block;
-    position:fixed; inset:0;
-    background:rgba(0,0,0,.35);
-    opacity:0; visibility:hidden;
-    transition:opacity .25s, visibility .25s;
-    z-index:1999;
-  }
-
-  /* Состояние "открыто" */
-  #nav-toggle:checked + .burger span{ background:transparent; }
-  #nav-toggle:checked + .burger span::before{ top:0; transform:rotate(45deg); }
-  #nav-toggle:checked + .burger span::after { top:0; transform:rotate(-45deg); }
-  #nav-toggle:checked + .burger + .nav-panel{ transform:translateX(0); }
-  #nav-toggle:checked ~ .scrim{ opacity:1; visibility:visible; }
-
-  header.site{ position:sticky; top:0; z-index:1000; }
-}
-
-/* сам чекбокс прячем надёжно */
-#nav-toggle{ position:fixed; left:-9999px; }
-/* временно отключаем бургер и выезжающую панель */
-.burger, .nav-panel, .scrim, #nav-toggle { display:none !important; }
 
 
-.gallery{
+
+.gallery-top {
   background:#fff; border:1px solid rgba(0,0,0,.06);
   border-radius:var(--radius); box-shadow:var(--shadow);
   padding:1.25rem; margin:1.5rem 0;
@@ -476,7 +361,7 @@ img[usemap] {
 .gallery h2{ margin-top:0; }
 
 /* превращаем галерею в горизонтальную ленту */
-.gallery .grid {
+.gallery-top .grid {
   display: flex;
   flex-wrap: nowrap;        /* запрет переносов */
   gap: 14px;
@@ -484,13 +369,11 @@ img[usemap] {
   scroll-behavior: smooth;
   padding-bottom: 10px;
   justify-content: flex-start;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
+  width: max-content;
 }
 
 /* карточки — фиксированной ширины */
-.gallery figure {
+.gallery-top figure {
   flex: 0 0 260px;          /* ширина каждой */
 }
 
@@ -780,19 +663,16 @@ img[usemap] {
 /* небольшой отклик при клике */
 .social-btn:active{ transform: translateY(1px); }
 
-/* ===== Форма регистрации (glassmorphism + аним квадраты) ===== */
-.signup{
-  --pad:1.25rem;
-  position:relative;
+/*  Форма регистрации (glassmorphism + аним квадраты) */
+.signup {
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.25rem;
   margin:1.5rem 0;
-  padding:calc(var(--pad) + 8px);
-  border-radius:14px;
-  background: color-mix(in srgb, var(--ivory) 65%, transparent); /* чуть матовое */
-  border:1px solid rgba(255,255,255,0.45);
-  box-shadow: 0 10px 30px rgba(8,10,20,.06);
-  backdrop-filter: blur(8px) saturate(1.05); /* glassmorphism */
-  overflow:hidden;
 }
+
 
 /* внутренний контейнер для контента (чтоб квадраты не мешали) */
 .signup-inner{ position:relative; z-index:2; padding:0.5rem 0; }
@@ -801,17 +681,12 @@ img[usemap] {
 
 /* форма */
 .signup-form .row{ display:flex; gap:10px; margin-bottom:.75rem; }
-.signup-form input{
-  flex:1;
+.signup-form input {
   padding:.7rem .85rem;
   border-radius:10px;
-  border:1px solid rgba(0,0,0,.08);
-  background:rgba(255,255,255,0.75);
-  font:inherit;
-  outline:none;
-  transition: box-shadow .12s, transform .12s;
-  box-shadow: 0 2px 8px rgba(10,10,20,.03);
+  border:1px solid rgba(0,0,0,.1);
 }
+
 .signup-form input:focus{ box-shadow:0 6px 18px rgba(11,12,30,.06); transform:translateY(-1px); border-color: color-mix(in srgb, var(--purple) 45%, transparent); }
 
 /* кнопки как у основного сайта */
@@ -819,33 +694,6 @@ img[usemap] {
 .signup .btn{ padding:10px 14px; border-radius:10px; font-weight:800; color:#fff; background:var(--red); border:0; cursor:pointer; }
 .signup .btn.alt{ background:var(--purple); }
 
-/* Пузыри: дайте им размер и сделайте их блочными */
-.signup .bubble{
-  --size: calc(20px + 2vw);
-  position: absolute;
-  width: var(--size);
-  height: var(--size);
-  display: block;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, color-mix(in srgb, var(--purple) 30%, transparent));
-  opacity: .25;           /* можно .25–.35 для заметности */
-  filter: blur(2px);
-  animation: float 8s ease-in-out infinite;
-  z-index: 1;
-  pointer-events: none;   /* чтобы не ловили клики по форме */
-}
-
-
-
-.signup .b1 { left: 8%; top: 10%; animation-delay: 0s; }
-.signup .b2 { right: 10%; top: 20%; animation-delay: 2s; }
-.signup .b3 { left: 20%; bottom: 10%; animation-delay: 4s; }
-.signup .b4 { right: 15%; bottom: 5%; animation-delay: 1s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-20px) scale(1.2); }
-}
 
 
 
@@ -856,97 +704,19 @@ img[usemap] {
   .signup .sq{ display:none; } /* прячем декор на узких экранах для читаемости */
 }
 
-.site-footer {
-  margin-top: 56px;
-  padding: 0 0 28px;
-  border-top: 1px solid rgba(0,0,0,.08);
-  font-size: 14px;
-  color: rgba(17,17,17,.68);
-}
-
-.site-footer .container {
+footer .container {
   display: grid;
-  gap: 18px;
-}
-
-.site-footer .made-by {
-  margin: 0;
-}
-
-.footer-bottom {
-  display: flex;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.creator-credit {
-  display: inline-flex;
-  align-items: baseline;
-  gap: .35em;
-  margin-left: auto;
-  color: rgba(17,17,17,.68);
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.creator-credit a {
-  color: var(--purple);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.creator-credit a:hover {
-  color: var(--red);
-  text-decoration: underline;
-}
-
-@media (max-width:720px) {
-  .footer-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .creator-credit {
-    margin-left: 0;
-  }
+  gap: 20px;
 }
 
 .signup-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
-@media (max-width:720px) {
-  .actions {
-    flex-wrap: wrap;
-  }
-
-  .login-form .row,
-  .signup-form .row {
-    flex-direction: column;
-    min-width: 0;
-  }
-
-  .signup-form {
-    grid-template-columns: 1fr;
-  }
-
-  .login-form input,
-  .signup-form input {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .login .actions,
-  .signup .actions {
-    flex-wrap: wrap;
-  }
-}
 
 header.site nav { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; }
 
@@ -1315,3 +1085,454 @@ a.btn.back:hover{ filter: brightness(.95); }
   user-select: none;
 }
 .gallery .grid.grabbing { cursor: grabbing; }
+
+.gallery:not(.gallery-top) .grid,
+.gallery:not(.gallery-top) .stills {
+  display: block;
+  width: 100%;
+}
+
+/* ===== BERSERK PAGE UNIQUE STYLE ===== */
+
+.berserk-quote-block {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1b1b1b 50%, #2a0000 100%);
+    text-align: center;
+    border-left: 5px solid #7a0000;
+    margin-bottom: 40px;
+}
+
+.berserk-quote {
+    font-size: 28px;
+    font-weight: 600;
+    color: #e0e0e0;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+.berserk-bg {
+    background: url("../images/berserk-bg.jpg") center/cover no-repeat fixed;
+}
+
+
+.geass-eye-block {
+    text-align: center;
+    padding: 30px 0;
+    margin: 50px 0;
+}
+
+.geass-eye {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        #b300ff 0%,
+        #6a00c7 45%,
+        #2b004f 70%,
+        transparent 100%);
+    box-shadow: 0 0 20px #b300ffaa;
+    animation: geass-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes geass-pulse {
+    0% { box-shadow: 0 0 12px #b300ffaa; transform: scale(1); }
+    50% { box-shadow: 0 0 26px #b300ffcc; transform: scale(1.06); }
+    100% { box-shadow: 0 0 12px #b300ffaa; transform: scale(1); }
+}
+
+.geass-eye-text {
+    font-size: 20px;
+    color: #dcdcff;
+    letter-spacing: 1px;
+}
+
+.bl-number {
+    text-align: center;
+    margin: 70px 0;
+}
+
+.big-num {
+    font-size: 130px;
+    font-weight: 900;
+    color: #0c5df466;
+    letter-spacing: -5px;
+}
+
+.bl-small {
+    font-size: 18px;
+    color: #0c5df4;
+    margin-top: -20px;
+}
+
+/* === BLUE LOCK: background player number === */
+
+.blue-lock-bg {
+    position: relative;
+    background: linear-gradient(180deg, #1d2f4a 0%, #233b5c 100%);
+}
+
+
+
+
+.blue-lock-bg::before {
+    content: "11"; /* можешь поменять на любой номер */
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 260px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    color: rgba(12, 93, 244, 0.05); /* очень бледный синий */
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* === TOKYO GHOUL: vertical cut === */
+
+
+.tokyo-ghoul-bg::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 4%;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 20, 60, 0) 0%,
+        rgba(255, 20, 60, 0.9) 40%,
+        rgba(255, 20, 60, 0.9) 60%,
+        rgba(255, 20, 60, 0) 100%
+    );
+    box-shadow: 0 0 14px rgba(255, 20, 60, 0.6);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.tokyo-ghoul-bg {
+    background: radial-gradient(circle at left, rgba(255,0,60,0.25), transparent 70%),
+                linear-gradient(#0b0b0f, #0b0b0f);
+}
+
+/* === DEATH NOTE UNIQUE STYLING === */
+
+.deathnote-bg {
+    position: relative;
+    background: #080808;
+    overflow-x: hidden;
+}
+
+/* 1 — Правило на фоне */
+.deathnote-bg::before {
+    content: "The human whose name is written in this note shall die.";
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Times New Roman", serif;
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* 4 — Поля как в тетрадке */
+.deathnote-bg::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(to right,
+            rgba(255,255,255,0.05) 0%,
+            rgba(255,255,255,0) 8%,
+            rgba(255,255,255,0) 92%,
+            rgba(255,255,255,0.05) 100%
+        );
+    z-index: -1;
+}
+
+/* 2 — Watermark L */
+.deathnote-L {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    font-family: "Times New Roman", serif;
+    font-size: 12rem;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+}
+
+/* 7 — Эффект ссылок */
+.deathnote-bg a:hover {
+    color: #b30000 !important;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.deathnote-bg .gallery h2 {
+    color: #f5f5f5 !important;
+    text-shadow: 0 0 6px rgba(255,255,255,0.15);
+}
+
+.kira-label {
+    position: fixed;
+    bottom: 20px;
+    left: 24px;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', serif;
+    color: rgba(255,255,255,0.05);
+    letter-spacing: 4px;
+    pointer-events: none;
+}
+
+.deathnote-names {
+    position: fixed;
+    top: 0;
+    right: 20px; /* если хочешь слева — поменяй на left */
+    height: 100vh;
+    width: 180px;
+    overflow: hidden;
+    font-size: 0.75rem;
+    line-height: 1.35rem;
+    color: rgba(255,255,255,0.06);
+    font-family: "Times New Roman", serif;
+    writing-mode: vertical-rl; /* вертикальный текст */
+    text-orientation: upright;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.55;
+}
+
+.signup .bottom-link {
+  text-align:center;
+  margin-top:12px;
+  font-size:15px;
+}
+.signup .bottom-link a {
+  font-weight:700;
+  text-decoration:underline;
+}
+
+.map-link-block {
+  background: var(--ivory);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+
+.map-link-text {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.map-link {
+  font-weight: 800;
+  color: var(--purple);
+  text-decoration: underline;
+  transition: color .2s, filter .2s;
+}
+
+.map-link:hover {
+  color: var(--red);
+  filter: brightness(.95);
+}
+
+.genres-hero {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.era-block {
+  margin: 3rem 0;
+}
+
+.era-block h2 {
+  margin-bottom: 1rem;
+}
+
+.era-img {
+  width: 80%;
+  height: 400px;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.divider {
+  margin: 3rem 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+/* ===== MINI BURGER ===== */
+
+.burger-min {
+  display: none;
+  width: 30px;
+  height: 22px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.burger-min span {
+  display: block;
+  height: 3px;
+  background: #111;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .burger-min {
+    display: flex;
+    margin-left: 12px;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -70%;
+    width: 70%;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -8px 0 18px rgba(0,0,0,.15);
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: right .3s ease;
+    z-index: 2000;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: #111;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .mobile-menu.open {
+    right: 0;
+  }
+
+  .burger-min.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .burger-min.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-min.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+
+/* ========== SIMPLE BURGER (изолированный модуль) ========== */
+
+#simple-burger {
+  position: relative;
+  display: none;
+}
+
+.sb-btn {
+  width: 28px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 5001;
+}
+
+.sb-btn span {
+  height: 3px;
+  background: #111;
+  border-radius: 2px;
+  transition: .3s;
+}
+
+.sb-menu {
+  position: fixed;
+  top: 0;
+  right: -70%;
+  width: 70%;
+  height: 100vh;
+  background: #fff;
+  padding: 80px 24px;
+  box-shadow: -6px 0 18px rgba(0,0,0,.15);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  transition: .3s ease;
+  z-index: 5000;
+}
+
+.sb-menu {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.sb-menu.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+
+.sb-menu a {
+  font-size: 20px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sb-menu.open {
+  right: 0;
+}
+
+.sb-btn.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.sb-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.sb-btn.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* показываем бургер только на мобилках */
+@media (max-width: 900px) {
+  #simple-burger {
+    display: block;
+    margin-left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 12px;
+  }
+
+  .search {
+    grid-column: 1 / -1;
+  }
+}
