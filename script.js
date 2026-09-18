@@ -63,7 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   generateCaptcha();
 
-  refreshBtn.addEventListener("click", generateCaptcha);
+  refreshBtn.addEventListener("click", () => {
+    generateCaptcha();
+    captchaText.textContent = "XXXXX";
+  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -344,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gallery.addEventListener("click", (e) => {
     const img = e.target.closest("img");
     if (!img) return;
-    mainImg.src = img.src;
+    mainImg.src = gallery.querySelector("img").src;
     mainImg.classList.add("fade");
     setTimeout(() => mainImg.classList.remove("fade"), 400);
   });
